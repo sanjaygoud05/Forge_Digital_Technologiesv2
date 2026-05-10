@@ -57,7 +57,7 @@ function Navbar() {
             </div>
 
             {/* Mobile Menu Dropdown */}
-            <div className={`md:hidden fixed top-16 sm:top-20 left-0 w-full bg-[#06060c]/75 backdrop-blur-2xl z-40 border-b border-[#1f1f3a]/50 transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className={`md:hidden fixed top-16 sm:top-20 left-0 w-full bg-[#06060c] z-40 border-b border-[#1f1f3a] transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="flex flex-col items-start px-5 py-5 space-y-1">
                     {[
                         { href: '#home', label: 'Home' },
