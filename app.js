@@ -25,17 +25,109 @@ class ErrorBoundary extends React.Component {
     }
 }
 
+const SERVICES_DATA = [
+    { 
+        id: "web-engineering",
+        icon: "icon-code", 
+        title: "High-Velocity Web Engineering", 
+        desc: "Precision-engineered web applications designed to dominate your market with speed, accessibility, and elite scalability.",
+        details: [
+            "Cutting-edge Next.js & React architectures",
+            "Pixel-perfect, performance-obsessed design",
+            "Conversion-optimized user journeys",
+            "Scalable infrastructure that grows with you"
+        ]
+    },
+    { 
+        id: "saas-products",
+        icon: "icon-cloud", 
+        title: "Revenue-Ready SaaS Products", 
+        desc: "Architecting powerful software-as-a-service platforms that turn complex problems into recurring revenue streams.",
+        details: [
+            "Secure, multi-tenant cloud ecosystems",
+            "Frictionless subscription management",
+            "Real-time intelligence dashboards",
+            "Automated customer lifecycle workflows"
+        ]
+    },
+    { 
+        id: "uiux-design",
+        icon: "icon-pen-tool", 
+        title: "Iconic UI/UX Design", 
+        desc: "Human-centric interfaces that strike a perfect balance between stunning aesthetics and effortless usability.",
+        details: [
+            "Strategic user behavior research",
+            "High-conversion interface prototyping",
+            "World-class visual brand identities",
+            "Rigorous usability and accessibility audits"
+        ]
+    },
+    { 
+        id: "startup-launchpad",
+        icon: "icon-rocket", 
+        title: "Market-Ready Startup Launchpad", 
+        desc: "From concept to market leader—we help founders build, ship, and scale their MVPs with lightning speed.",
+        details: [
+            "Hyper-fast MVP development cycles",
+            "Strategic product roadmap engineering",
+            "Elite tech stack consultation",
+            "Agile execution for rapid market entry"
+        ]
+    },
+    { 
+        id: "automation",
+        icon: "icon-settings", 
+        title: "Business Logic Automation", 
+        desc: "Streamline your operations with custom-built automation tools that eliminate manual bottlenecks and save thousands of hours.",
+        details: [
+            "Custom-engineered workflow automation",
+            "Seamless API & third-party integrations",
+            "Proprietary internal efficiency tools",
+            "Automated data intelligence pipelines"
+        ]
+    },
+    { 
+        id: "cloud-infrastructure",
+        icon: "icon-server", 
+        title: "Elite Cloud Infrastructure", 
+        desc: "Deploy with absolute confidence. We manage the complex tech so you can focus on scaling your business.",
+        details: [
+            "Architectural cloud setup (AWS/Vercel)",
+            "Automated CI/CD deployment pipelines",
+            "Zero-downtime monitoring & security",
+            "Redundant backup & failover protocols"
+        ]
+    }
+];
+
+window.SERVICES_DATA = SERVICES_DATA;
+
 function App() {
     const [currentPage, setCurrentPage] = React.useState('home');
+    const [activeService, setActiveService] = React.useState(null);
 
     React.useEffect(() => {
         const handleHashChange = () => {
-            if (window.location.hash === '#about-page') {
+            const hash = window.location.hash;
+            if (hash === '#about-page') {
                 setCurrentPage('about');
                 window.scrollTo(0, 0);
-            } else if (window.location.hash === '#contact-page') {
+            } else if (hash === '#contact-page') {
                 setCurrentPage('contact');
                 window.scrollTo(0, 0);
+            } else if (hash === '#services-page') {
+                setCurrentPage('services-list');
+                window.scrollTo(0, 0);
+            } else if (hash.startsWith('#service-')) {
+                const serviceId = hash.replace('#service-', '');
+                const service = SERVICES_DATA.find(s => s.id === serviceId);
+                if (service) {
+                    setActiveService(service);
+                    setCurrentPage('service-detail');
+                    window.scrollTo(0, 0);
+                } else {
+                    setCurrentPage('home');
+                }
             } else {
                 setCurrentPage('home');
                 // Allow browser to scroll to standard hashes like #services
@@ -80,6 +172,14 @@ function App() {
                 ) : currentPage === 'contact' ? (
                     <main className="flex-grow pt-20">
                         <ContactPage />
+                    </main>
+                ) : currentPage === 'services-list' ? (
+                    <main className="flex-grow pt-20">
+                        <Services isPage={true} />
+                    </main>
+                ) : currentPage === 'service-detail' ? (
+                    <main className="flex-grow">
+                        <ServiceDetailPage service={activeService} />
                     </main>
                 ) : (
                     <main className="flex-grow">

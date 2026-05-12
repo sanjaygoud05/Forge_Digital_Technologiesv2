@@ -1,163 +1,76 @@
-function Services() {
-    const [selectedService, setSelectedService] = React.useState(null);
-
-    const services = [
-        { 
-            icon: "icon-code", 
-            title: "High-Velocity Web Engineering", 
-            desc: "Precision-engineered web applications designed to dominate your market with speed, accessibility, and elite scalability.",
-            details: [
-                "Cutting-edge Next.js & React architectures",
-                "Pixel-perfect, performance-obsessed design",
-                "Conversion-optimized user journeys",
-                "Scalable infrastructure that grows with you"
-            ]
-        },
-        { 
-            icon: "icon-cloud", 
-            title: "Revenue-Ready SaaS Products", 
-            desc: "Architecting powerful software-as-a-service platforms that turn complex problems into recurring revenue streams.",
-            details: [
-                "Secure, multi-tenant cloud ecosystems",
-                "Frictionless subscription management",
-                "Real-time intelligence dashboards",
-                "Automated customer lifecycle workflows"
-            ]
-        },
-        { 
-            icon: "icon-pen-tool", 
-            title: "Iconic UI/UX Design", 
-            desc: "Human-centric interfaces that strike a perfect balance between stunning aesthetics and effortless usability.",
-            details: [
-                "Strategic user behavior research",
-                "High-conversion interface prototyping",
-                "World-class visual brand identities",
-                "Rigorous usability and accessibility audits"
-            ]
-        },
-        { 
-            icon: "icon-rocket", 
-            title: "Market-Ready Startup Launchpad", 
-            desc: "From concept to market leader—we help founders build, ship, and scale their MVPs with lightning speed.",
-            details: [
-                "Hyper-fast MVP development cycles",
-                "Strategic product roadmap engineering",
-                "Elite tech stack consultation",
-                "Agile execution for rapid market entry"
-            ]
-        },
-        { 
-            icon: "icon-settings", 
-            title: "Business Logic Automation", 
-            desc: "Streamline your operations with custom-built automation tools that eliminate manual bottlenecks and save thousands of hours.",
-            details: [
-                "Custom-engineered workflow automation",
-                "Seamless API & third-party integrations",
-                "Proprietary internal efficiency tools",
-                "Automated data intelligence pipelines"
-            ]
-        },
-        { 
-            icon: "icon-server", 
-            title: "Elite Cloud Infrastructure", 
-            desc: "Deploy with absolute confidence. We manage the complex tech so you can focus on scaling your business.",
-            details: [
-                "Architectural cloud setup (AWS/Vercel)",
-                "Automated CI/CD deployment pipelines",
-                "Zero-downtime monitoring & security",
-                "Redundant backup & failover protocols"
-            ]
-        }
-    ];
+function Services({ isPage = false }) {
+    // Use the global services data defined in app.js
+    const services = window.SERVICES_DATA || [];
 
     return (
-        <section id="services" className="py-12 sm:py-16 bg-[#020205]">
+        <section id="services" className={`py-12 sm:py-16 ${isPage ? 'bg-[#06060c] pt-24' : 'bg-[#020205]'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Back Link only on Page */}
+                {isPage && (
+                    <a 
+                        href="#home" 
+                        className="inline-flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors mb-12 group"
+                    >
+                        <div className="icon-arrow-left text-sm group-hover:-translate-x-1 transition-transform"></div>
+                        <span className="text-sm font-medium uppercase tracking-widest">Back to Home</span>
+                    </a>
+                )}
+
                 <div className="text-center mb-16 reveal reveal-up">
                     <div className="inline-flex items-center gap-4 mb-4">
                         <div className="h-px bg-purple-500/20 w-12"></div>
-                        <h2 className="text-[11px] font-bold tracking-[0.3em] text-purple-400 uppercase">SERVICES</h2>
+                        <h2 className="text-[11px] font-bold tracking-[0.3em] text-purple-400 uppercase">
+                            {isPage ? 'OUR EXPERTISE' : 'SERVICES'}
+                        </h2>
                         <div className="h-px bg-purple-500/20 w-12"></div>
                     </div>
-                    <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                        What We <span className="text-purple-500">Do</span>
-                    </h3>
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                        {isPage ? 'Digital Solutions for the ' : 'What We '}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+                            {isPage ? 'Modern Era' : 'Do'}
+                        </span>
+                    </h1>
+                    {isPage && (
+                        <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                            We combine deep technical expertise with visionary design to build digital products that don't just work—they win.
+                        </p>
+                    )}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {services.map((svc, idx) => (
-                        <div 
-                            key={idx} 
-                            onClick={() => setSelectedService(svc)}
-                            className={`group relative rounded-xl p-8 border border-[#1f1f3a] bg-[#0a0a16] hover:bg-[#0d0d1e] hover:border-purple-500/50 transition-all duration-300 reveal reveal-up delay-${(idx % 3) * 100 + 100} cursor-pointer`}
+                        <a 
+                            key={svc.id || idx} 
+                            href={`#service-${svc.id}`}
+                            className={`group relative rounded-2xl p-8 border border-[#1f1f3a] bg-[#0d0d1a]/40 hover:bg-[#0d0d1e] hover:border-purple-500/50 transition-all duration-500 reveal reveal-up delay-${(idx % 3) * 100 + 100} cursor-pointer block group overflow-hidden`}
                         >
-                            <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                                <div className="icon-arrow-up-right text-purple-400 text-xl"></div>
+                            {/* Decorative Background */}
+                            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all duration-500"></div>
+                            
+                            <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0">
+                                <div className="icon-arrow-up-right text-purple-400 text-2xl"></div>
                             </div>
-                            <div className="mb-6 w-12 h-12 rounded-lg bg-purple-900/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
-                                <div className={`${svc.icon} text-xl`}></div>
+                            
+                            <div className="mb-8 w-14 h-14 rounded-2xl bg-purple-900/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:bg-purple-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-purple-500/5">
+                                <div className={`${svc.icon} text-2xl`}></div>
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                            
+                            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
                                 {svc.title}
                             </h3>
-                            <p className="text-sm text-gray-400 leading-relaxed">
+                            
+                            <p className="text-gray-400 leading-relaxed mb-6 group-hover:text-gray-300 transition-colors">
                                 {svc.desc}
                             </p>
-                        </div>
+                            
+                            <div className="flex items-center gap-2 text-purple-400 text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                                <span>Learn More</span>
+                                <div className="icon-arrow-right"></div>
+                            </div>
+                        </a>
                     ))}
                 </div>
             </div>
-
-            {/* Modal */}
-            {selectedService && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity" onClick={() => setSelectedService(null)}>
-                    <div 
-                        className="relative bg-[#0a0a16] border border-[#1f1f3a] rounded-2xl p-8 max-w-lg w-full shadow-2xl animate-in fade-in zoom-in duration-300"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <button 
-                            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-[#1f1f3a]/50 text-gray-400 hover:text-white hover:bg-[#1f1f3a] transition-all"
-                            onClick={() => setSelectedService(null)}
-                        >
-                            <div className="icon-x text-xl"></div>
-                        </button>
-                        
-                        <div className="w-16 h-16 rounded-xl bg-purple-900/20 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6">
-                            <div className={`${selectedService.icon} text-3xl`}></div>
-                        </div>
-                        
-                        <h3 className="text-2xl font-bold text-white mb-4">
-                            {selectedService.title}
-                        </h3>
-                        
-                        <p className="text-gray-400 leading-relaxed mb-8">
-                            {selectedService.desc}
-                        </p>
-                        
-                        <div className="space-y-4 mb-10">
-                            <h4 className="text-[11px] font-bold tracking-widest text-purple-400 uppercase mb-4">What's Included</h4>
-                            {selectedService.details.map((detail, i) => (
-                                <div key={i} className="flex items-start gap-3 group/item">
-                                    <div className="w-5 h-5 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0 mt-0.5 group-hover/item:bg-purple-600 group-hover/item:text-white transition-all">
-                                        <div className="icon-check text-[10px]"></div>
-                                    </div>
-                                    <span className="text-sm text-gray-400 group-hover/item:text-gray-200 transition-colors">{detail}</span>
-                                </div>
-                            ))}
-                        </div>
-                        
-                        <div className="pt-6 border-t border-[#1f1f3a]">
-                            <button 
-                                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-purple-500/20 transition-all flex items-center justify-center gap-3"
-                                onClick={() => setSelectedService(null)}
-                            >
-                                <span>Close Details</span>
-                                <div className="icon-x text-xs"></div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </section>
     );
 }

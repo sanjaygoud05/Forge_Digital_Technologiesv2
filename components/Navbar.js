@@ -29,7 +29,7 @@ function Navbar() {
                     <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
                         <a href="#home" className="text-white font-medium text-sm transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-purple-500">Home</a>
                         <a href="#about-page" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">About</a>
-                        <a href="#services" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Services</a>
+                        <a href="#services-page" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Services</a>
                         <a href="#work" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Our Work</a>
                         <a href="#blog" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Blog</a>
                         <a href="#contact-page" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Contact</a>
@@ -63,7 +63,7 @@ function Navbar() {
                     {[
                         { href: '#home', label: 'Home' },
                         { href: '#about-page', label: 'About' },
-                        { href: '#services', label: 'Services' },
+                        { href: '#services-page', label: 'Services' },
                         { href: '#work', label: 'Our Work' },
                         { href: '#blog', label: 'Blog' },
                         { href: '#contact-page', label: 'Contact' },
