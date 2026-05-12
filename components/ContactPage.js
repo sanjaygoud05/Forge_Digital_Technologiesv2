@@ -30,7 +30,7 @@ function ContactPage() {
     };
 
     return (
-        <div className="min-h-[calc(100vh-80px)] bg-[#020205] relative overflow-hidden flex flex-col">
+        <div className="min-h-[calc(100vh-80px)] bg-[#020205] relative overflow-hidden flex flex-col pt-20 md:pt-28">
             {/* Background elements - Cleaned */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-0 w-full h-full bg-[#020205]"></div>
