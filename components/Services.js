@@ -3,13 +3,13 @@ function Services({ isPage = false }) {
     const services = window.SERVICES_DATA || [];
 
     return (
-        <section id="services" className={`py-12 sm:py-16 ${isPage ? 'bg-[#06060c] pt-24' : 'bg-[#020205]'}`}>
+        <section id="services" className={`py-12 sm:py-16 ${isPage ? 'bg-[#06060c] pt-20 md:pt-28' : 'bg-[#020205]'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Back Link only on Page */}
                 {isPage && (
                     <a 
                         href="#home" 
-                        className="inline-flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors mb-12 group"
+                        className="inline-flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors mb-6 md:mb-12 group"
                     >
                         <div className="icon-arrow-left text-sm group-hover:-translate-x-1 transition-transform"></div>
                         <span className="text-sm font-medium uppercase tracking-widest">Back to Home</span>

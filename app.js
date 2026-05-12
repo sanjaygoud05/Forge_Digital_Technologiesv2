@@ -166,15 +166,15 @@ function App() {
                 <Navbar />
                 
                 {currentPage === 'about' ? (
-                    <main className="flex-grow pt-20">
+                    <main className="flex-grow">
                         <AboutPage />
                     </main>
                 ) : currentPage === 'contact' ? (
-                    <main className="flex-grow pt-20">
+                    <main className="flex-grow">
                         <ContactPage />
                     </main>
                 ) : currentPage === 'services-list' ? (
-                    <main className="flex-grow pt-20">
+                    <main className="flex-grow">
                         <Services isPage={true} />
                     </main>
                 ) : currentPage === 'service-detail' ? (

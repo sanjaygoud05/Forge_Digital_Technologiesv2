@@ -2,12 +2,12 @@ function ServiceDetailPage({ service }) {
     if (!service) return null;
 
     return (
-        <div className="bg-[#06060c] min-h-screen text-white pt-24 pb-20">
+        <div className="bg-[#06060c] min-h-screen text-white pt-20 md:pt-28 pb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Back Link */}
                 <a 
                     href="#services-page" 
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors mb-12 group"
+                    className="inline-flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors mb-6 md:mb-12 group"
                 >
                     <div className="icon-arrow-left text-sm group-hover:-translate-x-1 transition-transform"></div>
                     <span className="text-sm font-medium uppercase tracking-widest">Back to Services</span>
