@@ -60,7 +60,7 @@ function ContactPage() {
                                 </div>
                                 <div>
                                     <h4 className="text-[11px] font-bold tracking-widest text-gray-500 uppercase mb-1">Email Support</h4>
-                                    <p className="text-lg font-semibold text-white">hello@forgedigital.tech</p>
+                                    <p className="text-lg font-semibold text-white">info@forgedigitaltechnologies.com</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-5">

@@ -27,10 +27,12 @@ class ErrorBoundary extends React.Component {
 
 const SERVICES_DATA = [
     { 
-        id: "web-engineering",
+        id: "web-development",
         icon: "icon-code", 
-        title: "High-Velocity Web Engineering", 
-        desc: "Precision-engineered web applications designed to dominate your market with speed, accessibility, and elite scalability.",
+        title: "WEB DEVELOPMENT", 
+        desc: "Responsive, fast and scalable websites tailored to your business needs.",
+        tagline: "Modern. Fast. Reliable.",
+        taglineIcon: "icon-arrow-right-circle",
         details: [
             "Cutting-edge Next.js & React architectures",
             "Pixel-perfect, performance-obsessed design",
@@ -39,10 +41,12 @@ const SERVICES_DATA = [
         ]
     },
     { 
-        id: "saas-products",
-        icon: "icon-cloud", 
-        title: "Revenue-Ready SaaS Products", 
-        desc: "Architecting powerful software-as-a-service platforms that turn complex problems into recurring revenue streams.",
+        id: "saas-development",
+        icon: "icon-monitor", 
+        title: "SAAS PRODUCT DEVELOPMENT", 
+        desc: "We build powerful SaaS products with user-friendly dashboards and automation.",
+        tagline: "From Idea to Scalable Product.",
+        taglineIcon: "icon-arrow-right-circle",
         details: [
             "Secure, multi-tenant cloud ecosystems",
             "Frictionless subscription management",
@@ -53,8 +57,10 @@ const SERVICES_DATA = [
     { 
         id: "uiux-design",
         icon: "icon-pen-tool", 
-        title: "Iconic UI/UX Design", 
-        desc: "Human-centric interfaces that strike a perfect balance between stunning aesthetics and effortless usability.",
+        title: "UI/UX DESIGN", 
+        desc: "Beautiful, intuitive and engaging designs that provide exceptional user experience.",
+        tagline: "Design that Connects.",
+        taglineIcon: "icon-arrow-right-circle",
         details: [
             "Strategic user behavior research",
             "High-conversion interface prototyping",
@@ -63,10 +69,12 @@ const SERVICES_DATA = [
         ]
     },
     { 
-        id: "startup-launchpad",
+        id: "startup-solutions",
         icon: "icon-rocket", 
-        title: "Market-Ready Startup Launchpad", 
-        desc: "From concept to market leader—we help founders build, ship, and scale their MVPs with lightning speed.",
+        title: "STARTUP TECH SOLUTIONS", 
+        desc: "From MVP to full-scale products, we help startups build, launch and grow successfully.",
+        tagline: "Build. Launch. Scale.",
+        taglineIcon: "icon-arrow-right-circle",
         details: [
             "Hyper-fast MVP development cycles",
             "Strategic product roadmap engineering",
@@ -77,8 +85,10 @@ const SERVICES_DATA = [
     { 
         id: "automation",
         icon: "icon-settings", 
-        title: "Business Logic Automation", 
-        desc: "Streamline your operations with custom-built automation tools that eliminate manual bottlenecks and save thousands of hours.",
+        title: "AUTOMATION & INTERNAL TOOLS", 
+        desc: "Custom tools and automation systems to streamline your processes and save time.",
+        tagline: "Automate. Optimize. Grow.",
+        taglineIcon: "icon-arrow-right-circle",
         details: [
             "Custom-engineered workflow automation",
             "Seamless API & third-party integrations",
@@ -87,10 +97,12 @@ const SERVICES_DATA = [
         ]
     },
     { 
-        id: "cloud-infrastructure",
+        id: "hosting-deployment",
         icon: "icon-server", 
-        title: "Elite Cloud Infrastructure", 
-        desc: "Deploy with absolute confidence. We manage the complex tech so you can focus on scaling your business.",
+        title: "HOSTING & DEPLOYMENT", 
+        desc: "Secure hosting, smooth deployment and ongoing maintenance – we handle it all.",
+        tagline: "Deploy. Maintain. Support.",
+        taglineIcon: "icon-arrow-right-circle",
         details: [
             "Architectural cloud setup (AWS/Vercel)",
             "Automated CI/CD deployment pipelines",

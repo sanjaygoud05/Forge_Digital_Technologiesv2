@@ -58,7 +58,7 @@ function Footer() {
                             <h4 className="text-white font-semibold text-[15px] mb-5">Contact Us</h4>
                             <ul className="space-y-4">
                                 {[
-                                    { icon: 'icon-mail', text: 'hello@forgedigital.tech' },
+                                    { icon: 'icon-mail', text: 'info@forgedigitaltechnologies.com' },
                                     { icon: 'icon-phone', text: '+91 63042 18064' },
                                     { icon: 'icon-globe', text: 'www.forgedigital.tech' },
                                     { icon: 'icon-map-pin', text: 'India' },
