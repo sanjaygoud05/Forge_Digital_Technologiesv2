@@ -1,8 +1,18 @@
 function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+    const [activeHash, setActiveHash] = React.useState(window.location.hash || '#home');
 
     const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     const closeMenu = () => setIsMobileMenuOpen(false);
+
+    // Update active hash on change
+    React.useEffect(() => {
+        const handleHashChange = () => {
+            setActiveHash(window.location.hash || '#home');
+        };
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+    }, []);
 
     // Close menu on resize to desktop
     React.useEffect(() => {
@@ -10,6 +20,22 @@ function Navbar() {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    const navLinks = [
+        { href: '#home', label: 'Home' },
+        { href: '#about-page', label: 'About' },
+        { href: '#services-page', label: 'Services' },
+        { href: '#work', label: 'Our Work' },
+        { href: '#blog', label: 'Blog' },
+        { href: '#contact-page', label: 'Contact' },
+    ];
+
+    // Helper to check if a link is active
+    const isActive = (href) => {
+        if (href === '#home' && (!activeHash || activeHash === '#home')) return true;
+        if (activeHash.startsWith('#service-') && href === '#services-page') return true;
+        return activeHash === href;
+    };
 
     return (
         <nav className="fixed w-full z-50 top-0 border-b border-[#1f1f3a] bg-[#06060c]/90 backdrop-blur-md">
@@ -27,12 +53,19 @@ function Navbar() {
 
                     {/* Desktop Nav */}
                     <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
-                        <a href="#home" className="text-white font-medium text-sm transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-purple-500">Home</a>
-                        <a href="#about-page" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">About</a>
-                        <a href="#services-page" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Services</a>
-                        <a href="#work" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Our Work</a>
-                        <a href="#blog" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Blog</a>
-                        <a href="#contact-page" className="text-gray-300 font-medium text-sm hover:text-white transition-colors">Contact</a>
+                        {navLinks.map(({ href, label }) => (
+                            <a 
+                                key={href}
+                                href={href} 
+                                className={`font-medium text-sm transition-all duration-300 relative py-2 ${
+                                    isActive(href) 
+                                    ? 'text-white after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-0.5 after:bg-purple-500 after:rounded-full' 
+                                    : 'text-gray-400 hover:text-white'
+                                }`}
+                            >
+                                {label}
+                            </a>
+                        ))}
                     </div>
 
                     {/* Desktop CTA */}
@@ -60,19 +93,14 @@ function Navbar() {
             {/* Mobile Menu Dropdown */}
             <div className={`md:hidden fixed top-16 sm:top-20 left-0 w-full bg-[#06060c] z-40 border-b border-[#1f1f3a] transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="flex flex-col items-start px-5 py-5 space-y-1">
-                    {[
-                        { href: '#home', label: 'Home' },
-                        { href: '#about-page', label: 'About' },
-                        { href: '#services-page', label: 'Services' },
-                        { href: '#work', label: 'Our Work' },
-                        { href: '#blog', label: 'Blog' },
-                        { href: '#contact-page', label: 'Contact' },
-                    ].map(({ href, label }) => (
+                    {navLinks.map(({ href, label }) => (
                         <a
                             key={href}
                             href={href}
                             onClick={closeMenu}
-                            className="text-gray-200 text-base font-medium hover:text-purple-400 transition-colors w-full py-3.5 border-b border-[#1f1f3a]/60 first:pt-0"
+                            className={`text-base font-medium transition-colors w-full py-3.5 border-b border-[#1f1f3a]/60 first:pt-0 ${
+                                isActive(href) ? 'text-purple-400' : 'text-gray-200 hover:text-purple-400'
+                            }`}
                         >
                             {label}
                         </a>
