@@ -5,13 +5,6 @@ function ServiceDetailPage({ service }) {
         <div className="bg-[#06060c] min-h-screen text-white pt-20 md:pt-28 pb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Back Link */}
-                <a 
-                    href="#services-page" 
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors mb-6 md:mb-12 group"
-                >
-                    <div className="icon-arrow-left text-sm group-hover:-translate-x-1 transition-transform"></div>
-                    <span className="text-sm font-medium uppercase tracking-widest">Back to Services</span>
-                </a>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                     {/* Left Side: Content */}

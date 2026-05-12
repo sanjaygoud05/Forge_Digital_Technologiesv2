@@ -11,11 +11,6 @@ function AboutPage() {
     return (
         <div className="bg-[#06060c] min-h-screen pt-20 md:pt-28 pb-12">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 reveal reveal-up">
-                <div className="mb-8">
-                    <a href="#home" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors font-medium bg-[#0a0a16] border border-[#1f1f3a] px-4 py-2 rounded-full hover:bg-[#111122]">
-                        <div className="icon-arrow-left"></div> Back to Home
-                    </a>
-                </div>
                 
                 <div className="bg-[#020205] border border-[#1f1f3a] rounded-[2rem] shadow-2xl relative overflow-hidden">
                     {/* Ambient glows */}
