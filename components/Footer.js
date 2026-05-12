@@ -84,7 +84,7 @@ function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="mt-12 sm:mt-14 pt-6 border-t border-[#1f1f3a] text-center sm:text-left text-[12px] text-gray-600 reveal reveal-up delay-600">
-                    © 2026 Student Forge Technologies Pvt.Ltd.. All rights reserved.
+                    © 2026 Student Forge Technologies Pvt.Ltd. All rights reserved.
                 </div>
             </div>
         </footer>
