@@ -1,8 +1,8 @@
 function Portfolio() {
-    const projects = [
-        { name: "EduHub Platform", category: "Education Tech", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "A comprehensive learning management system for modern educational institutions.", link: "#" },
-        { name: "TaskFlow SaaS", category: "Productivity", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "An intuitive project management tool designed for agile remote teams.", link: "#" },
-        { name: "FitTrack Analytics", category: "Health & Fitness", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "A powerful data analytics dashboard for tracking fitness goals and metrics.", link: "#" }
+    const projects = window.PROJECTS_DATA || [
+        { name: "Student Forge", category: "Student Innovation", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Empowering Next-Gen Innovators with cutting-edge educational tools and resources.", link: "https://www.studentforge.in/" },
+        { name: "Student Forge Platform", category: "EdTech Platform", image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "A comprehensive platform connecting students with opportunities and resources.", link: "https://share.google/pAGr2bwpfjKHt5sE8" },
+        { name: "assure.fund", category: "Financial Services", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Secure and reliable investment platform for modern financial planning.", link: "#" }
     ];
 
     return (
@@ -21,11 +21,12 @@ function Portfolio() {
                     </h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
                     {projects.map((proj, idx) => (
                         <div 
-                            key={idx} 
-                            className={`group relative rounded-xl overflow-hidden bg-[#0a0a16] border border-[#1f1f3a] hover:border-purple-500/50 transition-all duration-500 flex flex-col reveal reveal-up delay-${(idx % 3) * 100 + 100}`}
+                            key={proj.id || idx} 
+                            onClick={() => window.location.hash = `#project-${proj.id || idx}`}
+                            className={`group relative rounded-xl overflow-hidden bg-[#0a0a16] border border-[#1f1f3a] hover:border-purple-500/50 transition-all duration-500 flex flex-col reveal reveal-up delay-${(idx % 4) * 100 + 100} cursor-pointer`}
                         >
                             {/* Image */}
                             <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#111122]">

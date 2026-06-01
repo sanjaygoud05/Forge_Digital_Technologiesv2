@@ -114,9 +114,95 @@ const SERVICES_DATA = [
 
 window.SERVICES_DATA = SERVICES_DATA;
 
+const PROJECTS_DATA = [
+    { 
+        id: "student-forge",
+        name: "Student Forge", 
+        category: "Student Innovation", 
+        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+        desc: "Empowering Next-Gen Innovators with cutting-edge educational tools and resources.", 
+        fullDesc: "Student Forge is a revolutionary platform designed to empower the next generation of innovators. We provide cutting-edge educational tools, resources, and mentorship programs that help students transform their ideas into reality.",
+        link: "https://www.studentforge.in/",
+        tech: "React, Node.js, MongoDB, Tailwind CSS",
+        type: "Educational Platform",
+        status: "Live & Active",
+        features: [
+            "Interactive learning modules",
+            "Mentorship program integration",
+            "Project collaboration tools",
+            "Skill tracking dashboard",
+            "Career guidance resources",
+            "Community networking features"
+        ]
+    },
+    { 
+        id: "student-forge-platform",
+        name: "Student Forge Platform", 
+        category: "EdTech Platform", 
+        image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+        desc: "A comprehensive platform connecting students with opportunities and resources.", 
+        fullDesc: "The Student Forge Platform serves as a comprehensive ecosystem connecting students with educational opportunities, internships, and resources. It bridges the gap between academic learning and real-world application.",
+        link: "https://share.google/pAGr2bwpfjKHt5sE8",
+        tech: "Next.js, PostgreSQL, Redis, AWS",
+        type: "SaaS Platform",
+        status: "Live & Active",
+        features: [
+            "Opportunity matching algorithm",
+            "Real-time collaboration tools",
+            "Integrated messaging system",
+            "Progress analytics dashboard",
+            "Automated application tracking",
+            "Resource library access"
+        ]
+    },
+    { 
+        id: "assure-fund",
+        name: "assure.fund", 
+        category: "Financial Services", 
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+        desc: "Secure and reliable investment platform for modern financial planning.", 
+        fullDesc: "assure.fund is a secure and reliable investment platform designed for modern financial planning. We provide users with intelligent investment tools, portfolio management, and expert financial guidance.",
+        link: "#",
+        tech: "React, Python, Django, Stripe API",
+        type: "Fintech Application",
+        status: "In Development",
+        features: [
+            "AI-powered investment recommendations",
+            "Real-time portfolio tracking",
+            "Risk assessment tools",
+            "Automated rebalancing",
+            "Tax optimization features",
+            "Secure payment integration"
+        ]
+    },
+    { 
+        id: "larwa",
+        name: "Larwa", 
+        category: "Digital Solutions", 
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+        desc: "Innovative digital solutions for modern businesses and organizations.", 
+        fullDesc: "Larwa provides innovative digital solutions tailored for modern businesses and organizations. We focus on delivering cutting-edge technology that drives growth and efficiency.",
+        link: "https://larwa.org",
+        tech: "React, TypeScript, Node.js, AWS",
+        type: "Digital Agency",
+        status: "Live & Active",
+        features: [
+            "Custom web development",
+            "Mobile app solutions",
+            "Cloud infrastructure",
+            "Digital transformation consulting",
+            "UI/UX design services",
+            "API integration"
+        ]
+    }
+];
+
+window.PROJECTS_DATA = PROJECTS_DATA;
+
 function App() {
     const [currentPage, setCurrentPage] = React.useState('home');
     const [activeService, setActiveService] = React.useState(null);
+    const [activeProject, setActiveProject] = React.useState(null);
 
     React.useEffect(() => {
         const handleHashChange = () => {
@@ -136,6 +222,16 @@ function App() {
                 if (service) {
                     setActiveService(service);
                     setCurrentPage('service-detail');
+                    window.scrollTo(0, 0);
+                } else {
+                    setCurrentPage('home');
+                }
+            } else if (hash.startsWith('#project-')) {
+                const projectId = hash.replace('#project-', '');
+                const project = PROJECTS_DATA.find(p => p.id === projectId);
+                if (project) {
+                    setActiveProject(project);
+                    setCurrentPage('project-detail');
                     window.scrollTo(0, 0);
                 } else {
                     setCurrentPage('home');
@@ -192,6 +288,10 @@ function App() {
                 ) : currentPage === 'service-detail' ? (
                     <main className="flex-grow">
                         <ServiceDetailPage service={activeService} />
+                    </main>
+                ) : currentPage === 'project-detail' ? (
+                    <main className="flex-grow">
+                        <ProjectDetailPage project={activeProject} />
                     </main>
                 ) : (
                     <main className="flex-grow">
