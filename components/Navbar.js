@@ -25,7 +25,7 @@ function Navbar() {
         { href: '#home', label: 'Home' },
         { href: '#about-page', label: 'About' },
         { href: '#services-page', label: 'Services' },
-        { href: '#work', label: 'Our Work' },
+        { href: '#work-page', label: 'Our Work' },
         { href: '#contact-page', label: 'Contact' },
     ];
 

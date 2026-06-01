@@ -216,6 +216,9 @@ function App() {
             } else if (hash === '#services-page') {
                 setCurrentPage('services-list');
                 window.scrollTo(0, 0);
+            } else if (hash === '#work-page') {
+                setCurrentPage('work-page');
+                window.scrollTo(0, 0);
             } else if (hash.startsWith('#service-')) {
                 const serviceId = hash.replace('#service-', '');
                 const service = SERVICES_DATA.find(s => s.id === serviceId);
@@ -284,6 +287,10 @@ function App() {
                 ) : currentPage === 'services-list' ? (
                     <main className="flex-grow">
                         <Services isPage={true} />
+                    </main>
+                ) : currentPage === 'work-page' ? (
+                    <main className="flex-grow">
+                        <PortfolioPage />
                     </main>
                 ) : currentPage === 'service-detail' ? (
                     <main className="flex-grow">
