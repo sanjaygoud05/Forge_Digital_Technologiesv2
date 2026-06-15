@@ -7,7 +7,7 @@ function ProjectDetailPage({ project }) {
                 {/* Back Link */}
                 <div className="mb-8 reveal reveal-up">
                     <a 
-                        href="#work" 
+                        href="#work-page" 
                         className="inline-flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors group"
                     >
                         <div className="icon-arrow-left text-sm transform group-hover:-translate-x-1 transition-transform"></div>
