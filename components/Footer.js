@@ -67,12 +67,12 @@ function Footer() {
                                 {[
                                     { icon: 'icon-mail', text: 'info@forgedigitaltechnologies.com', href: 'mailto:info@forgedigitaltechnologies.com' },
                                     { icon: 'icon-phone', text: '+91 63042 18064', href: 'tel:+916304218064' },
-                                    { icon: 'icon-map-pin', text: 'India', href: null },
-                                ].map(({ icon, text, href }) => (
+                                    { icon: 'icon-map-pin', text: 'HF2R+CCV, Devender Colony, Kompally, Hyderabad, Telangana 500100', href: 'https://maps.app.goo.gl/vvtjUS9ARzpMKgkJ8?g_st=awb', target: '_blank' },
+                                ].map(({ icon, text, href, target }) => (
                                     <li key={text} className="flex items-center gap-3 text-[13px] text-gray-400">
                                         <div className={`${icon} text-gray-500 text-base shrink-0`}></div>
                                         {href ? (
-                                            <a href={href} className="break-all hover:text-purple-400 transition-colors">{text}</a>
+                                            <a href={href} target={target || '_self'} rel={target === '_blank' ? 'noreferrer' : undefined} className="break-all hover:text-purple-400 transition-colors">{text}</a>
                                         ) : (
                                             <span className="break-all">{text}</span>
                                         )}

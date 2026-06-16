@@ -194,6 +194,26 @@ const PROJECTS_DATA = [
             "UI/UX design services",
             "API integration"
         ]
+    },
+    { 
+        id: "smartfit-ai",
+        name: "SmartFit AI", 
+        category: "AI & Fitness Tech", 
+        image: "assets/project-5 img.png", 
+        desc: "AI-powered personal training & smart fitness hub revolutionizing the way you work out.", 
+        fullDesc: "SmartFit AI is an AI-powered personal training and smart fitness hub that transforms the fitness experience. Using advanced artificial intelligence, it delivers personalized workout plans, real-time coaching feedback, and adaptive training programs tailored to each user's unique goals and fitness level.",
+        link: "https://www.smartfitai.in/",
+        tech: "Next.js, Python, TensorFlow, FastAPI, PostgreSQL",
+        type: "AI SaaS Platform",
+        status: "Live & Active",
+        features: [
+            "AI-generated personalized workout plans",
+            "Real-time form & posture analysis",
+            "Adaptive training intensity engine",
+            "Smart progress tracking dashboard",
+            "Nutrition & recovery recommendations",
+            "Wearable device integration"
+        ]
     }
 ];
 
